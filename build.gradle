@@ -8,7 +8,7 @@ publishing {
             groupId = 'com.github.flyzhu27'
             artifactId = 'pos-aar'
             version = '0.0.1'
-            artifact file('libs/smartpos-2.0.9.aar')
+            artifact file('libs/smartpos-sdk-v2.0.9.aar')
         }
     }
 }
