@@ -1,0 +1,14 @@
+plugins {
+    id 'maven-publish'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.github.flyzhu27'
+            artifactId = 'pos-aar'
+            version = '0.0.1'
+            artifact file('libs/smartpos-2.0.9.aar')
+        }
+    }
+}
