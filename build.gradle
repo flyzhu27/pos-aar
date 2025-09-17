@@ -7,8 +7,19 @@ publishing {
         maven(MavenPublication) {
             groupId = 'com.github.flyzhu27'
             artifactId = 'pos-aar'
-            version = '0.0.1'
+            version = '0.0.2'
             artifact file('libs/smartpos-sdk-v2.0.9.aar')
         }
     }
+}
+
+// 最简单的任务配置
+task assemble {
+    doLast {
+        println "Assembly completed"
+    }
+}
+
+task build {
+    dependsOn assemble
 }
