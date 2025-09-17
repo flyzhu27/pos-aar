@@ -1,19 +1,37 @@
 plugins {
+    id 'com.android.library'
     id 'maven-publish'
 }
 
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+    }
+}
+
+// 直接依赖原始 AAR
+dependencies {
+    implementation files('libs/smartpos-2.0.9.aar')
+}
+
+// 发布 Android 库生成的 AAR
 publishing {
     publications {
         maven(MavenPublication) {
             groupId = 'com.github.flyzhu27'
             artifactId = 'pos-aar'
-            version = '0.0.2'
-            artifact file('libs/smartpos-sdk-v2.0.9.aar')
+            version = '0.0.3'
+
+            afterEvaluate {
+                artifact bundleReleaseAar
+            }
         }
     }
 }
 
-// 最简单的任务配置
 task assemble {
     doLast {
         println "Assembly completed"
